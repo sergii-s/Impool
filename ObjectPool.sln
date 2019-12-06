@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectPool", "ObjectPool\ObjectPool.csproj", "{29123B93-4A6C-4A52-BC30-64D4838505AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingApp", "UsingApp\UsingApp.csproj", "{F06F8411-C0BB-45E1-91EF-6FC684222B4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29123B93-4A6C-4A52-BC30-64D4838505AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29123B93-4A6C-4A52-BC30-64D4838505AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29123B93-4A6C-4A52-BC30-64D4838505AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29123B93-4A6C-4A52-BC30-64D4838505AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F06F8411-C0BB-45E1-91EF-6FC684222B4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F06F8411-C0BB-45E1-91EF-6FC684222B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F06F8411-C0BB-45E1-91EF-6FC684222B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F06F8411-C0BB-45E1-91EF-6FC684222B4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
