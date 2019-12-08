@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using CodeGeneration.Roslyn;
 
-namespace ObjectPool
+namespace Impool
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     [CodeGenerationAttribute(typeof(PoolObjectGenerator))]

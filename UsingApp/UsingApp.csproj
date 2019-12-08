@@ -1,16 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.0</TargetFramework>
+        <OutputType>Exe</OutputType>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\ObjectPool\ObjectPool.csproj" />
-    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="CodeGeneration.Roslyn.BuildTime" Version="0.6.1" />
       <DotNetCliToolReference Include="dotnet-codegen" Version="0.6.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Impool\Impool.csproj" />
     </ItemGroup>
 
 </Project>
