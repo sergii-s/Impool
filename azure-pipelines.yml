@@ -4,16 +4,19 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  - master
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  - script: ./fake.sh build
+    displayName: 'Build and test solution'
+    env:
+      BUILD_NUMBER: $(Build.BuildNumber)
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - script: ./fake.sh build -t Nuget-publish
+    displayName: 'Publish nuget'
+    env:
+      NUGET_KEY: $(nugetKey)
+      BUILD_NUMBER: $(Build.BuildNumber)

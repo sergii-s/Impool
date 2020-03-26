@@ -4,6 +4,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Impool", "Impool\Impool.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingApp", "UsingApp\UsingApp.csproj", "{F06F8411-C0BB-45E1-91EF-6FC684222B4D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{30CB6C51-74B6-474E-9EEA-CF87361E658C}"
+ProjectSection(SolutionItems) = preProject
+	azure-pipelines.yml = azure-pipelines.yml
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
