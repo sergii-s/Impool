@@ -24,9 +24,9 @@ let artifacts = "./artifacts"
 let nugetSource = "https://api.nuget.org/v3/index.json"
 let nugetKey = Environment.environVarOrNone "NUGET_KEY"
 
-let version = 
-    let majorVersion = Environment.environVarOrDefault "MAJOR_NUMBER" "0.1"
-    let buildNumber = Environment.environVarOrDefault "BUILD_NUMBER" "1"
+let version =
+    let majorVersion = Environment.environVarOrDefault "MAJOR_NUMBER" "0.2"
+    let buildNumber = Environment.environVarOrDefault "BUILD_NUMBER" "0"
     sprintf "%s.%s" majorVersion buildNumber
 
 let buildConfiguration = 
