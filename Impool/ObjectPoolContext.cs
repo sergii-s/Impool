@@ -5,36 +5,32 @@ namespace Impool
 {
     public class ObjectPoolContext : IDisposable
     {
+        private readonly ConcurrentBag<Action> _disposeActions = new ConcurrentBag<Action>();
         private ObjectPoolContext()
         {
         }
 
-        private readonly ConcurrentDictionary<Type, IDisposable> _genericPools = new ConcurrentDictionary<Type, IDisposable>();
-        
         public void Dispose()
         {
-            foreach (var pool in _genericPools)
+            while (_disposeActions.TryTake(out var dispose))
             {
-                pool.Value.Dispose();   
+                dispose();
             }
-            _genericPools.Clear();
             GlobalPool<ObjectPoolContext>.Pool.Add(this);
         }
-
-        private GenericPool<T> GetPool<T>()
-        { 
-            return (GenericPool<T>)_genericPools.GetOrAdd(typeof(T), type =>
-            {
-                if (GlobalPool<GenericPool<T>>.Pool.TryTake(out var poolFromPool))
-                {
-                    return poolFromPool;
-                }
-                return new GenericPool<T>(GlobalPool<T>.Pool);
-            });
-        }
+        
         public T Get<T>(Func<T> create, Action<T> update)
         {
-            return GetPool<T>().Create(create, update);
+            if (GlobalPool<T>.Pool.TryTake(out var item))
+            {
+                update(item);
+                _disposeActions.Add(() => GlobalPool<T>.Pool.Add(item));
+                return item;
+            }
+
+            var newItem = create();
+            _disposeActions.Add(() => GlobalPool<T>.Pool.Add(newItem));
+            return newItem;
         }
         
         public static ObjectPoolContext Context()
